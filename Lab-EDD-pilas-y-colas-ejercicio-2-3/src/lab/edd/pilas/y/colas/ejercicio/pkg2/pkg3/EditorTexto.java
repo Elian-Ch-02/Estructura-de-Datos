@@ -1,0 +1,49 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package lab.edd.pilas.y.colas.ejercicio.pkg2.pkg3;
+
+import java.util.Stack;
+
+/**
+ *
+ * @author Elian
+ */
+public class EditorTexto {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Stack<String> historial = new Stack<>();
+
+        // Estado inicial vacío
+        String texto = "";
+        historial.push(texto);
+
+        // Simulamos escribir
+        texto = texto + "Hola";
+        historial.push(texto);
+
+        texto = texto + " mundo";
+        historial.push(texto);
+
+        texto = texto + "!";
+        historial.push(texto);
+
+        System.out.println("Texto actual: " + texto);
+
+        // Simulamos Ctrl + Z
+        texto = historial.pop(); // estado actual
+        texto = historial.pop(); // deshacer último
+        System.out.println("Después de Ctrl+Z: " + texto);
+
+        // Otro Ctrl+Z
+        texto = historial.pop();
+        System.out.println("Después de otro Ctrl+Z: " + texto);
+        
+    }
+    
+}
