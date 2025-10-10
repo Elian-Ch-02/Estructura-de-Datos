@@ -22,12 +22,12 @@ public class Data {
         this.age = 0;
     }
     
-    public Data(String power, String name, String alias, int age) {
-        this.power = power;
-        this.name = name;
-        this.alias = alias;
-        this.age = age;
-    }
+    public Data(String name, String power, String alias, int age) { 
+    this.name = name;
+    this.power = power;
+    this.alias = alias;
+    this.age = age;
+}
 
     
     

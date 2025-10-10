@@ -42,28 +42,32 @@ public class ListaS {
     }
     
     public boolean insertarAntesde(Data dato, String nombre){
-        if (head == null){
+    if (head == null){
         return false;
     }
-        if (head.getData().getName().equals(nombre)){
-            agregarAlInicio(dato);
-            return true;
-        }
-        
-        Nodo actual = head;
-        Nodo anterior = null;
-        while (actual != null && !actual.getData().getName().equals(nombre)) {
-            anterior = actual;
-            actual = actual.getLink();
-        }
-        if (actual != null){
-            Nodo nuevoNodo = new Nodo(dato, actual);
-            anterior.setLink(nuevoNodo);
-            size++;
-            return true;
-        }
-        return false;
+    
+    if (head.getData().getName().equals(nombre)){
+        agregarAlInicio(dato);
+        return true;  // agregarAlInicio ya incrementa size
     }
+    
+    Nodo actual = head;
+    Nodo anterior = null;
+    
+    while (actual != null && !actual.getData().getName().equals(nombre)) {
+        anterior = actual;
+        actual = actual.getLink();
+    }
+    
+    if (actual != null){
+        Nodo nuevoNodo = new Nodo(dato, actual);
+        anterior.setLink(nuevoNodo);
+        size++;
+        return true;
+    }
+    
+    return false;
+}
  
     public boolean insertarDespuesde(Data dato, String nombreB){
         Nodo temp = head;
@@ -125,5 +129,7 @@ public class ListaS {
             temp = temp.getLink();
         }
     }
+
+   
     
 }
